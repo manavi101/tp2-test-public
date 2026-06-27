@@ -3,18 +3,16 @@ package personajeFactory;
 import java.util.ArrayList;
 import java.util.Random;
 
+import hechizoFactory.AvadaKedavraFactory;
+import hechizoFactory.ExpeliarmusFactory;
+import hechizoFactory.ProtegoFactory;
 import personajes.Mortifago;
 import personajes.SubClaseMortifago;
 
 public class MortifagoFactory extends PersonajeFactory{
 	
-	private ArrayList<String> nombres;
-	private ArrayList<String> nombresDisponibles;
-	private Random rand;
-	
 	public MortifagoFactory() {
-		
-		rand = new Random();
+		super();
 		
 		nombres = new ArrayList<>();
 		
@@ -34,17 +32,12 @@ public class MortifagoFactory extends PersonajeFactory{
 		
 		SubClaseMortifago subClaseRandom = subClases[rand.nextInt(subClases.length)];
 		
-		return new Mortifago(obtenerNombre(), subClaseRandom);
+		Mortifago mortifago = new Mortifago(obtenerNombre(), subClaseRandom);
+		mortifago.agregarHechizo(new AvadaKedavraFactory().crearHechizo());
+		mortifago.agregarHechizo(new ExpeliarmusFactory().crearHechizo());
+		mortifago.agregarHechizo(new ProtegoFactory().crearHechizo());
+		
+		return mortifago;
 	}
 	
-	public String obtenerNombre() {
-		
-		if(nombresDisponibles.isEmpty()) {
-			nombresDisponibles = new ArrayList<>(nombres);
-		}
-		
-		int indice = rand.nextInt(nombresDisponibles.size());
-		
-		return nombresDisponibles.remove(indice);
-	}
 }

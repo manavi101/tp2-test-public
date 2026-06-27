@@ -1,10 +1,18 @@
 package personajes;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 
 public class Batallon {
 	
+	protected static final Random random = new Random();
+	private Map<Personaje, List<String>> hechizosLanzados = new HashMap<>();
 	private List<Personaje> personajes;
 	
 	public Batallon() {
@@ -16,17 +24,45 @@ public class Batallon {
 	}
 	
 	public boolean tienePersonajesSaludables() {
+		return !personajesVivos().isEmpty();
+	}
+
+	public List<Personaje> personajesVivos() {
+		List<Personaje> vivos = new ArrayList<>();
 		for (Personaje personaje : personajes) {
 			if(personaje.estaVivo()) {
-				return true;
+				vivos.add(personaje);
 			}
 		}
-		
-		return false;
+		return vivos;
 	}
 	
 	public void atacar(Batallon objetivo) {
+		Set<String> hechizosUsadosEnTurno = new HashSet<>();
 		
+		for(Personaje atacante : personajesVivos()) {
+			List<Personaje> enemigosVivos = objetivo.personajesVivos();
+			if(enemigosVivos.isEmpty()) { break; }
+			
+			Personaje victima = enemigosVivos.get(random.nextInt(enemigosVivos.size()));
+			String hechizoLanzado = atacante.atacar(victima, hechizosUsadosEnTurno);
+			
+			if(hechizoLanzado != null) {
+				hechizosUsadosEnTurno.add(hechizoLanzado);
+				registrarHechizo(atacante, hechizoLanzado);
+			}
+
+			if(!victima.estaVivo()) {
+				System.out.println("  >> " + victima.obtenerNombre() + " ha caído");
+			}
+		}
+	}
+	
+	private void registrarHechizo(Personaje personaje, String hechizo) {
+	    if (!hechizosLanzados.containsKey(personaje)) {
+	        hechizosLanzados.put(personaje, new ArrayList<>());
+	    }
+	    hechizosLanzados.get(personaje).add(hechizo);
 	}
 	
 	public void mostrarIntegrantes() {

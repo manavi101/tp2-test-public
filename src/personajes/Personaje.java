@@ -3,6 +3,8 @@ package personajes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
+
 import hechizo.Hechizo;
 
 public abstract class Personaje {
@@ -13,11 +15,23 @@ public abstract class Personaje {
 	protected List<Hechizo> hechizos = new ArrayList<>();
 	protected boolean escudoActivo = false;
 	
-	public void atacar(Personaje objetivo) {
-		if(hechizos.isEmpty()) return;
-	    int indice = random.nextInt(hechizos.size()); //Totalmente aleatorio
-	    Hechizo elegido = hechizos.get(indice);
-	    elegido.ejecutar(this, objetivo);
+	public String atacar(Personaje objetivo, Set<String> hechizosUsados) {
+		List<Hechizo> disponible = new ArrayList<>();
+		for(Hechizo hechizo : hechizos) {
+			if(!hechizosUsados.contains(hechizo.obtenerNombre())) {
+				disponible.add(hechizo);
+			}
+		}
+		
+		if(disponible.isEmpty()) {
+			return null;
+		}
+		
+		Hechizo elegido = disponible.get(random.nextInt(disponible.size()));
+		
+		elegido.ejecutar(this, objetivo);
+		
+		return elegido.obtenerNombre();
 	}
 	
 	public Personaje(String nombre, int puntosDeSalud, int nivelDeMagia) {

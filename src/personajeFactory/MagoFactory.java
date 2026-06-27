@@ -8,15 +8,10 @@ import personajes.SubClaseMago;
 
 public class MagoFactory extends PersonajeFactory{
 	
-	private ArrayList<String> nombres;
-	private ArrayList<String> nombresDisponibles;
-	private Random rand;
-	
 	public MagoFactory() {
+		super();
 		
 		nombres = new ArrayList<>();
-		
-		rand = new Random();
 		
 		nombres.add("Harry");
 		nombres.add("Hermionie");
@@ -36,15 +31,5 @@ public class MagoFactory extends PersonajeFactory{
 		return new Mago(obtenerNombre(), subClaseRandom);
 	}
 	
-	public String obtenerNombre() {
-		
-		if(nombresDisponibles.isEmpty()) {
-			nombresDisponibles = new ArrayList<>(nombres);
-		}
-		
-		int indice = rand.nextInt(nombresDisponibles.size());
-		
-		return nombresDisponibles.remove(indice);
-	}
 
 }

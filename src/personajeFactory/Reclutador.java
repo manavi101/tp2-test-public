@@ -3,15 +3,15 @@ package personajeFactory;
 import personajes.Personaje;
 
 public class Reclutador {
-	private static PersonajeFactory magoFactory = new MagoFactory();
+	private PersonajeFactoryInterface personajeFactory;
 	
-	private static PersonajeFactory mortifagoFactory = new MortifagoFactory();
-	
-	public static Personaje crearMago() {
-		return magoFactory.crearPersonaje();
+	public Reclutador(PersonajeFactoryInterface personajeFactory) {
+		this.personajeFactory = personajeFactory;
 	}
 	
-	public static Personaje crearMortifago() {
-		return mortifagoFactory.crearPersonaje();
+	public Personaje reclutarPersonaje() {
+		return personajeFactory.crearPersonaje();
 	}
 }
+
+//Magos factory con mortifagos factory 

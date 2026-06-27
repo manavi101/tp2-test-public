@@ -1,5 +1,7 @@
 package batalla;
 
+import personajeFactory.MagoFactory;
+import personajeFactory.MortifagoFactory;
 import personajeFactory.Reclutador;
 import personajes.Batallon;
 
@@ -13,13 +15,17 @@ public class BatallaMagosVsMortifagos {
 	    Batallon batallonMagos = new Batallon();
 
 	    Batallon batallonMortifagos = new Batallon();
+	    
+	    Reclutador reclutadorMagos = new Reclutador(new MagoFactory());
+	    
+	    Reclutador reclutadorMortifagos = new Reclutador(new MortifagoFactory());
 
 
 	    for (int i = 0; i < 3; i++) {
 
-	      batallonMagos.agregarPersonaje(Reclutador.crearMago());
+	      batallonMagos.agregarPersonaje(reclutadorMagos.reclutarPersonaje());
 
-	      batallonMortifagos.agregarPersonaje(Reclutador.crearMortifago());
+	      batallonMortifagos.agregarPersonaje(reclutadorMortifagos.reclutarPersonaje());
 
 	    }
 
