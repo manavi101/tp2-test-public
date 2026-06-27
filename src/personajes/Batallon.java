@@ -16,7 +16,13 @@ public class Batallon {
 	}
 	
 	public boolean tienePersonajesSaludables() {
-		return true;
+		for (Personaje personaje : personajes) {
+			if(personaje.estaVivo()) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	public void atacar(Batallon objetivo) {
