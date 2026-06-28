@@ -31,6 +31,8 @@ public class BatallaMagosVsMortifagos {
 
 
 	    Random rand = new Random();
+	    
+	    System.out.println("----------------------------");
 
 	    while (batallonMagos.tienePersonajesSaludables() && batallonMortifagos.tienePersonajesSaludables()) {
 
@@ -49,7 +51,7 @@ public class BatallaMagosVsMortifagos {
 	      } else {
 
 	        batallonMortifagos.atacar(batallonMagos);
-
+	        
 	        if (batallonMagos.tienePersonajesSaludables()) {
 
 	          batallonMagos.atacar(batallonMortifagos);
@@ -60,7 +62,7 @@ public class BatallaMagosVsMortifagos {
 
 
 	      System.out.println("----------------------------");
-
+	      
 	    }
 
 
