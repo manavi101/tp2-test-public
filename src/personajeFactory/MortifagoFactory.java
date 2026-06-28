@@ -1,8 +1,6 @@
 package personajeFactory;
 
 import java.util.ArrayList;
-import java.util.Random;
-
 import hechizoFactory.AvadaKedavraFactory;
 import hechizoFactory.ExpeliarmusFactory;
 import hechizoFactory.ProtegoFactory;

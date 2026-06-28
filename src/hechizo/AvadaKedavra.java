@@ -9,7 +9,7 @@ public class AvadaKedavra implements Hechizo{
 	public void ejecutar(Personaje lanzador, Personaje objetivo) {
 		int danio = lanzador.potenciarDanioOscuro(danioBase);
 		objetivo.recibirAtaque(danio);
-		System.out.println(lanzador.obtenerNombre() + " lanzó Avada Kedavra a " + objetivo.obtenerNombre() + " (-" + danio + " HP)");
+		System.out.println(lanzador.obtenerNombre() + " lanzó Avada Kedavra a " + objetivo.obtenerNombre() + " (-" + danio + " HP) [le quedan " + objetivo.obtenerPuntosDeSalud() + " HP]");
 	}
 
 	@Override
