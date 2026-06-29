@@ -14,7 +14,7 @@ public class Sectumsempra extends Hechizo{
 		
 		objetivo.agregarEfectoActivo(new Sectumsempra());
 		
-		System.out.println(lanzador.obtenerNombre() + "lanzo Sectumsempra sobre " + objetivo.obtenerNombre());
+		System.out.println(lanzador.obtenerNombre() + " lanzo Sectumsempra sobre " + objetivo.obtenerNombre());
 		
 	}
 	
@@ -29,11 +29,16 @@ public class Sectumsempra extends Hechizo{
 	}
 
 	@Override
-	public void aplicarFinDeTurno(Personaje personaje) {
+	public void aplicarEfecto(Personaje personaje) {
+		if(!personaje.estaVivo()) {
+			turnosRestantes = 0;
+			return;
+		}
+		
 		personaje.recibirAtaque(danioTurno);
 		turnosRestantes--;
 		
-		System.out.println(personaje.obtenerNombre() + " Se desangra (-" + danioTurno + " HP [le quedaan " + personaje.obtenerPuntosDeSalud() + " HP]");
+		System.out.println(personaje.obtenerNombre() + " Se desangra (-" + danioTurno + " HP [le quedan " + personaje.obtenerPuntosDeSalud() + " HP]");
 	}
 	
 	@Override

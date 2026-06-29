@@ -3,11 +3,14 @@ package hechizo;
 import personajes.Personaje;
 
 public abstract class Hechizo {
+	
+	protected boolean activoDesdeSiguienteRonda = false;
+	
 	public abstract void ejecutar(Personaje lanzador, Personaje objetivo);
 	
 	public abstract String obtenerNombre();
 	
-	public abstract void aplicarFinDeTurno(Personaje personaje);
+	public abstract void aplicarEfecto(Personaje personaje);
 	
 	public boolean esEfectoPorTurno() {
 		return false;
@@ -23,5 +26,18 @@ public abstract class Hechizo {
 	
 	public void potenciarHechizo(Hechizo nuevoHechizo) {
 		
+	}
+	
+	public MomentoEfecto obtenerMomentoEfecto() {
+		return null;
+	}
+
+	public void activarParaLaSigueinteRonda() {
+		activoDesdeSiguienteRonda = true;
+	}
+	
+	
+	public boolean estaActivo() {
+		return activoDesdeSiguienteRonda;
 	}
 }

@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+import hechizo.MomentoEfecto;
+
 public class Batallon {
 	
 	protected static final Random random = new Random();
@@ -58,13 +60,19 @@ public class Batallon {
 		}
 	}
 	
-	public void aplicarEfectosFinDeTurno() {
+	public void aplicarEfectos(MomentoEfecto momento) {
 		for(Personaje personaje : personajesVivos()) {
-			personaje.aplicarEfectosFinDeTurno();
+			personaje.aplicarEfectos(momento);
 			
 			if(!personaje.estaVivo()) {
 				System.out.println("  >> " + personaje.obtenerNombre() + " ha caído por un efecto");
 			}
+		}
+	}
+	
+	public void activarEfectoParaSiguienteRonda() {
+		for(Personaje personaje: personajesVivos()) {
+			personaje.activarEfectosParaSiguienteRonda();
 		}
 	}
 	

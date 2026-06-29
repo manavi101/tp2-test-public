@@ -7,11 +7,15 @@ import personajes.Batallon;
 
 import java.util.Random;
 
+import hechizo.MomentoEfecto;
+
 
 public class BatallaMagosVsMortifagos {
 
 	  public static void main(String[] args) {
-
+		
+		int turno = 1;
+		
 	    Batallon batallonMagos = new Batallon();
 
 	    Batallon batallonMortifagos = new Batallon();
@@ -31,13 +35,18 @@ public class BatallaMagosVsMortifagos {
 
 
 	    Random rand = new Random();
-	    
-	    System.out.println("----------------------------");
 
 	    while (batallonMagos.tienePersonajesSaludables() && batallonMortifagos.tienePersonajesSaludables()) {
 
 	      // los ataques pueden tener salidas por pantalla para mostrar lo que sucede
-
+	    	
+	    	System.out.println("----------------------------");
+	    	System.out.println(" Inicio de turno: " + turno);
+	    	System.out.println("----------------------------");
+	    	
+	    	batallonMagos.aplicarEfectos(MomentoEfecto.INICIO_TURNO);
+	    	batallonMortifagos.aplicarEfectos(MomentoEfecto.INICIO_TURNO);
+	    	
 	      if (rand.nextBoolean()) {
 
 	        batallonMagos.atacar(batallonMortifagos);
@@ -59,13 +68,20 @@ public class BatallaMagosVsMortifagos {
 	        }
 
 	      }
-
 	      
-	      batallonMagos.aplicarEfectosFinDeTurno();
-	      batallonMortifagos.aplicarEfectosFinDeTurno();
+	      batallonMagos.aplicarEfectos(MomentoEfecto.FIN_TURNO);
+	      batallonMortifagos.aplicarEfectos(MomentoEfecto.FIN_TURNO);
 	      
+	      batallonMagos.activarEfectoParaSiguienteRonda();
+	      batallonMortifagos.activarEfectoParaSiguienteRonda();
+	      
+	      System.out.println();
 	      System.out.println("----------------------------");
+	      System.out.println(" Fin de turno " + turno);
+	      System.out.println("----------------------------");
+	      System.out.println();
 	      
+	      turno++;
 	    }
 
 

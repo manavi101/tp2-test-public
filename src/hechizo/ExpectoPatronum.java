@@ -18,7 +18,7 @@ public class ExpectoPatronum extends Hechizo {
 	}
 
 	@Override
-	public void aplicarFinDeTurno(Personaje personaje) {
+	public void aplicarEfecto(Personaje personaje) {
 		
 	}
 }

@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.Set;
 
 import hechizo.Hechizo;
+import hechizo.MomentoEfecto;
 
 public abstract class Personaje {
 	protected static final Random random = new Random();
@@ -59,25 +60,34 @@ public abstract class Personaje {
 		puntosDeSalud = Math.max(0, puntosDeSalud - danioRecibido);
 	}
 	
-	public void agregarEfectoActivo(Hechizo hechizo) {
+	public void agregarEfectoActivo(Hechizo nuevoEfecto) {
 		for(Hechizo efectoActual : efectosActivos) {
-			if(efectoActual.esMismoEfecto(hechizo)) {
-				efectoActual.potenciarHechizo(hechizo);
+			if(efectoActual.esMismoEfecto(nuevoEfecto)) {
+				efectoActual.potenciarHechizo(nuevoEfecto);
 				return;
 			}
 		}
 		
-		efectosActivos.add(hechizo);
+		efectosActivos.add(nuevoEfecto);
 	}
 	
-	public void aplicarEfectosFinDeTurno() {
+	public void activarEfectosParaSiguienteRonda() {
+		for(Hechizo efecto : efectosActivos) {
+			efecto.activarParaLaSigueinteRonda();
+		}
+	}
+	
+	public void aplicarEfectos(MomentoEfecto momento) {
 		List<Hechizo> efectosTerminados = new ArrayList<>();
 		
 		for(Hechizo efecto : efectosActivos) {
-			efecto.aplicarFinDeTurno(this);
+			if(efecto.esEfectoPorTurno() && efecto.estaActivo() && efecto.obtenerMomentoEfecto() == momento) {
+				efecto.aplicarEfecto(this);
+				
+				if(efecto.finalizo()) {
+					efectosTerminados.add(efecto);
+				}
 			
-			if(efecto.finalizo()) {
-				efectosTerminados.add(efecto);
 			}
 		}
 		

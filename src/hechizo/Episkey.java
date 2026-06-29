@@ -20,6 +20,11 @@ public class Episkey extends Hechizo{
 	public boolean esEfectoPorTurno() {
 		return true;
 	}
+	
+	@Override
+	public MomentoEfecto obtenerMomentoEfecto() {
+		return MomentoEfecto.INICIO_TURNO;
+	}
 
 	@Override
 	public String obtenerNombre() {
@@ -27,7 +32,12 @@ public class Episkey extends Hechizo{
 	}
 
 	@Override
-	public void aplicarFinDeTurno(Personaje personaje) {
+	public void aplicarEfecto(Personaje personaje) {
+		if(!personaje.estaVivo()) {
+			turnosRestantes = 0;
+			return;
+		}
+		
 		personaje.curar(curacionTurno);
 		turnosRestantes--;
 		
