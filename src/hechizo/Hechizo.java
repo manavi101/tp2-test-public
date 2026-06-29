@@ -2,8 +2,18 @@ package hechizo;
 
 import personajes.Personaje;
 
-public interface Hechizo {
-	void ejecutar(Personaje lanzador, Personaje objetivo);
+public abstract class Hechizo {
+	public abstract void ejecutar(Personaje lanzador, Personaje objetivo);
 	
-	String obtenerNombre();
+	public abstract String obtenerNombre();
+	
+	public abstract void aplicarFinDeTurno(Personaje personaje);
+	
+	public boolean esEfectoPorTurno() {
+		return false;
+	}
+	
+	public boolean finalizo() {
+		return true;
+	}
 }

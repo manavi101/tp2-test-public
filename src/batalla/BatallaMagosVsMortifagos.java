@@ -60,7 +60,10 @@ public class BatallaMagosVsMortifagos {
 
 	      }
 
-
+	      
+	      batallonMagos.aplicarEfectosFinDeTurno();
+	      batallonMortifagos.aplicarEfectosFinDeTurno();
+	      
 	      System.out.println("----------------------------");
 	      
 	    }

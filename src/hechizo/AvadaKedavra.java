@@ -2,7 +2,7 @@ package hechizo;
 
 import personajes.Personaje;
 
-public class AvadaKedavra implements Hechizo{
+public class AvadaKedavra extends Hechizo{
 	private static final int danioBase = 50;//???
 
 	@Override
@@ -15,6 +15,11 @@ public class AvadaKedavra implements Hechizo{
 	@Override
 	public String obtenerNombre() {
 		return "Avada Kedabra";
+	}
+
+	@Override
+	public void aplicarFinDeTurno(Personaje personaje) {
+		
 	}
 
 }

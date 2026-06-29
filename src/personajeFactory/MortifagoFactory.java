@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import hechizoFactory.AvadaKedavraFactory;
 import hechizoFactory.ExpeliarmusFactory;
 import hechizoFactory.ProtegoFactory;
+import hechizoFactory.SectumsempraFactory;
 import personajes.Mortifago;
 import personajes.SubClaseMortifago;
 
@@ -34,7 +35,7 @@ public class MortifagoFactory extends PersonajeFactory{
 		mortifago.agregarHechizo(new AvadaKedavraFactory().crearHechizo());
 		mortifago.agregarHechizo(new ExpeliarmusFactory().crearHechizo());
 		mortifago.agregarHechizo(new ProtegoFactory().crearHechizo());
-		
+		mortifago.agregarHechizo(new SectumsempraFactory().crearHechizo());
 		return mortifago;
 	}
 	

@@ -58,6 +58,16 @@ public class Batallon {
 		}
 	}
 	
+	public void aplicarEfectosFinDeTurno() {
+		for(Personaje personaje : personajesVivos()) {
+			personaje.aplicarEfectosFinDeTurno();
+			
+			if(!personaje.estaVivo()) {
+				System.out.println("  >> " + personaje.obtenerNombre() + " ha caído por un efecto");
+			}
+		}
+	}
+	
 	private void registrarHechizo(Personaje personaje, String hechizo) {
 	    if (!hechizosLanzados.containsKey(personaje)) {
 	        hechizosLanzados.put(personaje, new ArrayList<>());

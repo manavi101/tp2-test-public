@@ -14,6 +14,7 @@ public abstract class Personaje {
 	protected int nivelDeMagia;
 	protected List<Hechizo> hechizos = new ArrayList<>();
 	protected boolean escudoActivo = false;
+	protected List<Hechizo> efectosActivos = new ArrayList<>();
 	
 	public String atacar(Personaje objetivo, Set<String> hechizosUsados) {
 		List<Hechizo> disponible = new ArrayList<>();
@@ -54,6 +55,24 @@ public abstract class Personaje {
 			escudoActivo = false;
 		}
 		puntosDeSalud = Math.max(0, puntosDeSalud - danioRecibido);
+	}
+	
+	public void agregarEfectoActivo(Hechizo hechizo) {
+		efectosActivos.add(hechizo);
+	}
+	
+	public void aplicarEfectosFinDeTurno() {
+		List<Hechizo> efectosTerminados = new ArrayList<>();
+		
+		for(Hechizo efecto : efectosActivos) {
+			efecto.aplicarFinDeTurno(this);
+			
+			if(efecto.finalizo()) {
+				efectosTerminados.add(efecto);
+			}
+		}
+		
+		efectosActivos.removeAll(efectosTerminados);
 	}
 	
 	@Override

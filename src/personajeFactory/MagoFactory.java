@@ -2,6 +2,7 @@ package personajeFactory;
 
 import java.util.ArrayList;
 import hechizoFactory.AvadaKedavraFactory;
+import hechizoFactory.EpiskeyFactory;
 import hechizoFactory.ExpeliarmusFactory;
 import hechizoFactory.ProtegoFactory;
 import hechizoFactory.ExpectoPatronumFactory;
@@ -36,6 +37,7 @@ public class MagoFactory extends PersonajeFactory{
 		mago.agregarHechizo(new ProtegoFactory().crearHechizo());
 		mago.agregarHechizo(new AvadaKedavraFactory().crearHechizo());
 		mago.agregarHechizo(new ExpectoPatronumFactory().crearHechizo());
+		mago.agregarHechizo(new EpiskeyFactory().crearHechizo());
 		
 		return mago;
 	}

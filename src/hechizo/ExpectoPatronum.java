@@ -2,7 +2,7 @@ package hechizo;
 
 import personajes.Personaje;
 
-public class ExpectoPatronum implements Hechizo {
+public class ExpectoPatronum extends Hechizo {
 	private static final int curacionBase = 20;
 	
 	@Override
@@ -15,5 +15,10 @@ public class ExpectoPatronum implements Hechizo {
 	@Override
 	public String obtenerNombre() {
 		return "Expectro Patronum";
+	}
+
+	@Override
+	public void aplicarFinDeTurno(Personaje personaje) {
+		
 	}
 }

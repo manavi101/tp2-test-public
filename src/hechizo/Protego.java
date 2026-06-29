@@ -2,7 +2,7 @@ package hechizo;
 
 import personajes.Personaje;
 
-public class Protego implements Hechizo{
+public class Protego extends Hechizo{
 
 	@Override
 	public void ejecutar(Personaje lanzador, Personaje objetivo) {
@@ -13,6 +13,11 @@ public class Protego implements Hechizo{
 	@Override
 	public String obtenerNombre() {
 		return "Protego";
+	}
+
+	@Override
+	public void aplicarFinDeTurno(Personaje personaje) {
+		
 	}
 
 }

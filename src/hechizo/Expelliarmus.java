@@ -2,7 +2,7 @@ package hechizo;
 
 import personajes.Personaje;
 
-public class Expelliarmus implements Hechizo{
+public class Expelliarmus extends Hechizo{
 	private static final int danioBase = 20; //?
 
 	@Override
@@ -15,5 +15,10 @@ public class Expelliarmus implements Hechizo{
 	@Override
 	public String obtenerNombre() {
 		return "Expeliarmus";
+	}
+
+	@Override
+	public void aplicarFinDeTurno(Personaje personaje) {
+		
 	}
 }
