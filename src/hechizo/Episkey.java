@@ -3,8 +3,8 @@ package hechizo;
 import personajes.Personaje;
 
 public class Episkey extends Hechizo{
-	private static final int curacionTurno = 25;
-	private static final int duracion = 5;
+	private int curacionTurno = 25;
+	private int duracion = 5;
 	
 	private int turnosRestantes = duracion;
 
@@ -38,5 +38,13 @@ public class Episkey extends Hechizo{
 	public boolean finalizo() {
 		return turnosRestantes <= 0;
 	}
-
+	
+	@Override
+	public void potenciarHechizo(Hechizo nuevoHechizo) {
+		curacionTurno += curacionTurno;
+		turnosRestantes += 2;
+		
+		System.out.println("Episkey se fortaleció: ahora cura " + curacionTurno + " HP por turno");
+	}
+	
 }

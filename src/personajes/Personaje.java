@@ -11,6 +11,7 @@ public abstract class Personaje {
 	protected static final Random random = new Random();
 	protected String nombre;
 	protected int puntosDeSalud;
+	protected int puntosDeSaludMaximos;
 	protected int nivelDeMagia;
 	protected List<Hechizo> hechizos = new ArrayList<>();
 	protected boolean escudoActivo = false;
@@ -38,6 +39,7 @@ public abstract class Personaje {
 	public Personaje(String nombre, int puntosDeSalud, int nivelDeMagia) {
 		this.nombre = nombre;
 		this.puntosDeSalud = puntosDeSalud;
+		puntosDeSaludMaximos = puntosDeSalud;
 		this.nivelDeMagia = nivelDeMagia;
 	}
 	
@@ -58,6 +60,13 @@ public abstract class Personaje {
 	}
 	
 	public void agregarEfectoActivo(Hechizo hechizo) {
+		for(Hechizo efectoActual : efectosActivos) {
+			if(efectoActual.esMismoEfecto(hechizo)) {
+				efectoActual.potenciarHechizo(hechizo);
+				return;
+			}
+		}
+		
 		efectosActivos.add(hechizo);
 	}
 	
@@ -101,7 +110,7 @@ public abstract class Personaje {
 	}
 	
 	public void curar(int vidaCurada) {
-		puntosDeSalud += vidaCurada;
+		puntosDeSalud = Math.min(puntosDeSalud += vidaCurada, puntosDeSaludMaximos);
 	}
 	
 	public void activarEscudo() {

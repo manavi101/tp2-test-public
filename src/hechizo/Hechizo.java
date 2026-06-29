@@ -16,4 +16,12 @@ public abstract class Hechizo {
 	public boolean finalizo() {
 		return true;
 	}
+	
+	public boolean esMismoEfecto(Hechizo nuevoHechizo) {
+		return this.obtenerNombre().equals(nuevoHechizo.obtenerNombre());
+	}
+	
+	public void potenciarHechizo(Hechizo nuevoHechizo) {
+		
+	}
 }

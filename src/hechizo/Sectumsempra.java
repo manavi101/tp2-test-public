@@ -4,8 +4,8 @@ import personajes.Personaje;
 
 public class Sectumsempra extends Hechizo{
 
-	private static final int danioTurno = 35;
-	private static final int duracion = 3;
+	private int danioTurno = 35;
+	private int duracion = 3;
 	
 	private int turnosRestantes = duracion;
 	
@@ -41,6 +41,12 @@ public class Sectumsempra extends Hechizo{
 		return turnosRestantes <= 0;
 	}
 	
-	
+	@Override
+	public void potenciarHechizo(Hechizo nuevoHechizo) {
+		danioTurno += danioTurno;
+		turnosRestantes += 2;
+		
+		System.out.println("Sectumsempra se intensificó: ahora causa " + danioTurno + "HP por turno");
+	}
 
 }

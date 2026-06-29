@@ -34,7 +34,6 @@ public class MortifagoFactory extends PersonajeFactory{
 		Mortifago mortifago = new Mortifago(obtenerNombre(), subClaseRandom);
 		mortifago.agregarHechizo(new AvadaKedavraFactory().crearHechizo());
 		mortifago.agregarHechizo(new ExpeliarmusFactory().crearHechizo());
-		mortifago.agregarHechizo(new ProtegoFactory().crearHechizo());
 		mortifago.agregarHechizo(new SectumsempraFactory().crearHechizo());
 		return mortifago;
 	}
