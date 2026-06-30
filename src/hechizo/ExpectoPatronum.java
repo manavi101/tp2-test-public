@@ -17,8 +17,4 @@ public class ExpectoPatronum extends Hechizo {
 		return "Expectro Patronum";
 	}
 
-	@Override
-	public void aplicarEfecto(Personaje personaje) {
-		
-	}
 }

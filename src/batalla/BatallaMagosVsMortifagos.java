@@ -23,6 +23,8 @@ public class BatallaMagosVsMortifagos {
 	    Reclutador reclutadorMagos = new Reclutador(new MagoFactory());
 	    
 	    Reclutador reclutadorMortifagos = new Reclutador(new MortifagoFactory());
+	    
+	    Random rand = new Random();
 
 
 	    for (int i = 0; i < 3; i++) {
@@ -33,8 +35,6 @@ public class BatallaMagosVsMortifagos {
 
 	    }
 
-
-	    Random rand = new Random();
 
 	    while (batallonMagos.tienePersonajesSaludables() && batallonMortifagos.tienePersonajesSaludables()) {
 

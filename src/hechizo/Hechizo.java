@@ -2,7 +2,7 @@ package hechizo;
 
 import personajes.Personaje;
 
-public abstract class Hechizo {
+public abstract class Hechizo{
 	
 	protected boolean activoDesdeSiguienteRonda = false;
 	
@@ -10,7 +10,9 @@ public abstract class Hechizo {
 	
 	public abstract String obtenerNombre();
 	
-	public abstract void aplicarEfecto(Personaje personaje);
+	public void aplicarEfecto(Personaje personaje) {
+		
+	}
 	
 	public boolean esEfectoPorTurno() {
 		return false;
