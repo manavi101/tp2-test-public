@@ -18,6 +18,13 @@ public abstract class Personaje {
 	protected boolean escudoActivo = false;
 	protected List<Hechizo> efectosActivos = new ArrayList<>();
 	
+	public Personaje(String nombre, int puntosDeSalud, int nivelDeMagia) {
+		this.nombre = nombre;
+		this.puntosDeSalud = puntosDeSalud;
+		puntosDeSaludMaximos = puntosDeSalud;
+		this.nivelDeMagia = nivelDeMagia;
+	}
+	
 	public String atacar(Personaje objetivo, Set<String> hechizosUsados) {
 		List<Hechizo> disponible = new ArrayList<>();
 		for(Hechizo hechizo : hechizos) {
@@ -36,13 +43,7 @@ public abstract class Personaje {
 		
 		return elegido.obtenerNombre();
 	}
-	
-	public Personaje(String nombre, int puntosDeSalud, int nivelDeMagia) {
-		this.nombre = nombre;
-		this.puntosDeSalud = puntosDeSalud;
-		puntosDeSaludMaximos = puntosDeSalud;
-		this.nivelDeMagia = nivelDeMagia;
-	}
+
 	
 	public int potenciarDanioOscuro(int danioBase) {
 		return danioBase + nivelDeMagia;
