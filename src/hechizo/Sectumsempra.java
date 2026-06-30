@@ -27,7 +27,11 @@ public class Sectumsempra extends Hechizo{
 	public String obtenerNombre() {
 		return "Sectumsempra";
 	}
-
+	
+	@Override
+	public MomentoEfecto obtenerMomentoEfecto() {
+		return MomentoEfecto.FIN_TURNO;
+	}
 	@Override
 	public void aplicarEfecto(Personaje personaje) {
 		if(!personaje.estaVivo()) {
