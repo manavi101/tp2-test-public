@@ -15,9 +15,5 @@ public class Protego extends Hechizo{
 		return "Protego";
 	}
 
-	@Override
-	public void aplicarEfecto(Personaje personaje) {
-		
-	}
 
 }

@@ -10,6 +10,7 @@ public abstract class PersonajeFactory implements PersonajeFactoryInterface {
 	protected ArrayList<String> nombres;
 	protected ArrayList<String> nombresDisponibles;
 	protected Random rand;
+	
 	public abstract Personaje crearPersonaje();
 	
 	

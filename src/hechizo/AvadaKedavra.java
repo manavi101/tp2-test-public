@@ -17,9 +17,4 @@ public class AvadaKedavra extends Hechizo{
 		return "Avada Kedabra";
 	}
 
-	@Override
-	public void aplicarEfecto(Personaje personaje) {
-		
-	}
-
 }

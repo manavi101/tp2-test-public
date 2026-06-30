@@ -1,10 +1,9 @@
 package personajeFactory;
 
 import java.util.ArrayList;
-import hechizoFactory.AvadaKedavraFactory;
-import hechizoFactory.ExpeliarmusFactory;
-import hechizoFactory.ProtegoFactory;
-import hechizoFactory.SectumsempraFactory;
+import hechizo.AvadaKedavra;
+import hechizo.Expelliarmus;
+import hechizo.Sectumsempra;
 import personajes.Mortifago;
 import personajes.SubClaseMortifago;
 
@@ -32,9 +31,9 @@ public class MortifagoFactory extends PersonajeFactory{
 		SubClaseMortifago subClaseRandom = subClases[rand.nextInt(subClases.length)];
 		
 		Mortifago mortifago = new Mortifago(obtenerNombre(), subClaseRandom);
-		mortifago.agregarHechizo(new AvadaKedavraFactory().crearHechizo());
-		mortifago.agregarHechizo(new ExpeliarmusFactory().crearHechizo());
-		mortifago.agregarHechizo(new SectumsempraFactory().crearHechizo());
+		mortifago.agregarHechizo(new AvadaKedavra());
+		mortifago.agregarHechizo(new Expelliarmus());
+		mortifago.agregarHechizo(new Sectumsempra());
 		return mortifago;
 	}
 	

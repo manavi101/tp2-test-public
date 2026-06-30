@@ -17,8 +17,4 @@ public class Expelliarmus extends Hechizo{
 		return "Expeliarmus";
 	}
 
-	@Override
-	public void aplicarEfecto(Personaje personaje) {
-		
-	}
 }
