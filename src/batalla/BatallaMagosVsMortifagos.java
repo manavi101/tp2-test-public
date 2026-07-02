@@ -2,12 +2,6 @@ package batalla;
 
 import personajeFactory.MagoFactory;
 import personajeFactory.MortifagoFactory;
-import personajeFactory.Reclutador;
-import personajes.Batallon;
-
-import java.util.Random;
-
-import hechizo.MomentoEfecto;
 
 
 public class BatallaMagosVsMortifagos {
@@ -17,13 +11,10 @@ public class BatallaMagosVsMortifagos {
 
 		Batalla batalla = new Batalla(new MagoFactory(), new MortifagoFactory());
 
-		// Agregar magos al batallón 1
-		batalla.agregarMagos(5);
+		batalla.agregarPersonaje1(5);
 
-		// Agregar mortífagos al batallón 2
-		batalla.agregarMortifagos(5);
+		batalla.agregarPersonaje2(3);
 
-		// Realizar la batalla
 		batalla.realizarBatalla();
 
 	  }

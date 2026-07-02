@@ -1,7 +1,6 @@
 package batalla;
 
-import personajeFactory.MagoFactory;
-import personajeFactory.MortifagoFactory;
+import personajeFactory.PersonajeFactory;
 import personajeFactory.Reclutador;
 import personajes.Batallon;
 
@@ -28,13 +27,13 @@ public class Batalla {
         this.turno = 1;
     }
 
-    public void agregarMagos(int cantidad) {
+    public void agregarPersonaje1(int cantidad) {
         for (int i = 0; i < cantidad; i++) {
             batallon1.agregarPersonaje(reclutador1.reclutarPersonaje());
         }
     }
 
-    public void agregarMortifagos(int cantidad) {
+    public void agregarPersonaje2(int cantidad) {
         for (int i = 0; i < cantidad; i++) {
             batallon2.agregarPersonaje(reclutador2.reclutarPersonaje());
         }
