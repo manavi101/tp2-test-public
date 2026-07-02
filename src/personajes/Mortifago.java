@@ -23,4 +23,9 @@ public class Mortifago extends Personaje{
 	public String toString() {
 		return "[Mortifago] " + nombre + " | SubClase: " + subClase + " | Puntos de Salud " + puntosDeSalud + " | Nivel de Magia: " + nivelDeMagia;
 	}
+
+	@Override
+	public String obtenerTipo() {
+		return "Mortifago";
+	}
 }

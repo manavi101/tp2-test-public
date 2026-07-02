@@ -131,4 +131,6 @@ public abstract class Personaje {
 	public void agregarHechizo(Hechizo hechizo) {
 		hechizos.add(hechizo);
 	}
+
+	public abstract String obtenerTipo();
 }
