@@ -23,4 +23,9 @@ public class Mago extends Personaje{
 	public String toString() {
 		return "[Mago] " + nombre + " | SubClase: " + subClase + " | Puntos de Salud " + puntosDeSalud + " | Nivel de Magia: " + nivelDeMagia;
 	}
+
+	@Override
+	public String obtenerTipo() {
+		return "Mago";
+	}
 }

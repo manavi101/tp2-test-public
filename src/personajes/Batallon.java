@@ -88,4 +88,11 @@ public class Batallon {
 			System.out.println(personaje);
 		}
 	}
+
+	public String obtenerTipoDePersonajes() {
+		if (personajes.isEmpty()) {
+			return "Desconocido";
+		}
+		return personajes.get(0).obtenerTipo();
+	}
 }
