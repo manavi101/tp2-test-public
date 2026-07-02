@@ -19,7 +19,7 @@ public class Batalla {
     private Random rand;
     private int turno;
 
-    Batalla(PErsonAFactory factory1, PERSONAFactory factory2) {
+    Batalla(PersonajeFactory factory1, PersonajeFactory factory2) {
         this.batallon1 = new Batallon();
         this.batallon2 = new Batallon();
         this.reclutador1 = new Reclutador(factory1);
