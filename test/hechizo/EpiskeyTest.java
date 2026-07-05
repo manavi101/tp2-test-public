@@ -25,7 +25,7 @@ public class EpiskeyTest {
     @Test
     public void episkeyCuraDuranteElTurnoYSeAcumula() {
         Mago mago = new Mago("Neville", SubClaseMago.AUROR);
-        mago.modificarPuntosDeSalud(20);
+        mago.modificarPuntosDeSalud(10);
 
         Episkey episkey = new Episkey();
         episkey.ejecutar(mago, mago);
@@ -33,12 +33,18 @@ public class EpiskeyTest {
         mago.activarEfectosParaSiguienteRonda();
         mago.aplicarEfectos(MomentoEfecto.INICIO_TURNO);
 
+        assertEquals(35, mago.obtenerPuntosDeSalud());
+
         episkey.ejecutar(mago, mago);
+        mago.activarEfectosParaSiguienteRonda();
+        mago.aplicarEfectos(MomentoEfecto.INICIO_TURNO);
+
+        assertEquals(85, mago.obtenerPuntosDeSalud());
 
         mago.activarEfectosParaSiguienteRonda();
         mago.aplicarEfectos(MomentoEfecto.INICIO_TURNO);
 
-        assertEquals(95, mago.obtenerPuntosDeSalud());
+        assertEquals(100, mago.obtenerPuntosDeSalud());
     }
 
     @Test

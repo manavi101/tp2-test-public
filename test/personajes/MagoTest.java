@@ -55,4 +55,25 @@ public class MagoTest {
 
         assertEquals(35, mago.potenciarCuracion(10));
     }
+
+    @Test
+    public void obtenerMagoString() {
+        Mago mago = crearMago();
+
+        assertEquals("[Mago] Harry | SubClase: ALUMNO | Puntos de Salud 80 | Nivel de Magia: 15", mago.toString());
+    }
+
+    @Test
+    public void obtenerTipoMago() {
+        Mago mago = crearMago();
+
+        assertEquals("Mago", mago.obtenerTipo());
+    }
+
+    @Test
+    public void obtenerSubclaseMago() {
+        Mago mago = crearMago();
+
+        assertEquals(SubClaseMago.ALUMNO, mago.obtenerSubclase());
+    }
 }
