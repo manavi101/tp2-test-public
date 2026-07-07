@@ -1,7 +1,6 @@
 package personajeFactory;
 
 import org.junit.jupiter.api.Test;
-import personajeFactory.MagoFactory;
 import personajes.Mago;
 
 import java.util.HashSet;

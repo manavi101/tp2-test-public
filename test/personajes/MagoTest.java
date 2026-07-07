@@ -1,8 +1,6 @@
 package personajes;
 
 import org.junit.jupiter.api.Test;
-import personajes.Mago;
-import personajes.SubClaseMago;
 
 import static org.junit.jupiter.api.Assertions.*;
 

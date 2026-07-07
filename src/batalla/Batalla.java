@@ -40,6 +40,9 @@ public class Batalla {
     }
 
     public void realizarBatalla(){
+        System.out.println("Comienza la batalla!");
+        System.out.println();
+    	
         while (batallon1.tienePersonajesSaludables() && batallon2.tienePersonajesSaludables()) {
             realizarTurno();
 
@@ -48,17 +51,18 @@ public class Batalla {
     }
 
     private void mostrarResultadoBatalla() {
+    	System.out.println();
         if (batallon1.tienePersonajesSaludables()) {
-            System.out.println("¡Los " + batallon1.obtenerTipoDePersonajes() + " han ganado la batalla!");
+            System.out.println("¡Los " + batallon1.obtenerTipoDePersonajes() + "s han ganado la batalla!");
         } else {
-            System.out.println("¡Los " + batallon2.obtenerTipoDePersonajes() + " han ganado la batalla!");
+            System.out.println("¡Los " + batallon2.obtenerTipoDePersonajes() + "s han ganado la batalla!");
         }
     }
 
     private void realizarTurno() {
         System.out.println("----------------------------");
-        System.out.println(" Inicio de turno: " + turno);
-        System.out.println("----------------------------");
+        System.out.println("Inicio de turno: " + turno);
+        System.out.println();
 
         batallon1.aplicarEfectos(MomentoEfecto.INICIO_TURNO);
         batallon2.aplicarEfectos(MomentoEfecto.INICIO_TURNO);
@@ -78,11 +82,8 @@ public class Batalla {
         batallon2.activarEfectoParaSiguienteRonda();
 
         System.out.println();
+        System.out.println("Fin de turno " + turno);
         System.out.println("----------------------------");
-        System.out.println(" Fin de turno " + turno);
-        System.out.println("----------------------------");
-        System.out.println();
-
         turno++;
     }
 

@@ -3,7 +3,7 @@ package hechizo;
 import personajes.Personaje;
 
 public class AvadaKedavra extends Hechizo{
-	private static final int danioBase = 50;//???
+	private static final int danioBase = 40;
 
 	@Override
 	public void ejecutar(Personaje lanzador, Personaje objetivo) {
